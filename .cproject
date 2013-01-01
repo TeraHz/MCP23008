@@ -28,7 +28,7 @@
 							<option id="cdt.managedbuild.option.gnu.cross.prefix.206713745" name="Prefix" superClass="cdt.managedbuild.option.gnu.cross.prefix" value="arm-unknown-linux-gnueabi-" valueType="string"/>
 							<option id="cdt.managedbuild.option.gnu.cross.path.1550590277" name="Path" superClass="cdt.managedbuild.option.gnu.cross.path" value="/home/terahz/x-tools6h/arm-unknown-linux-gnueabi/bin" valueType="string"/>
 							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.targetPlatform.gnu.cross.403081811" isAbstract="false" osList="all" superClass="cdt.managedbuild.targetPlatform.gnu.cross"/>
-							<builder buildPath="${workspace_loc:/MCP23008}/src" id="cdt.managedbuild.builder.gnu.cross.2144712166" managedBuildOn="false" name="Gnu Make Builder" superClass="cdt.managedbuild.builder.gnu.cross"/>
+							<builder arguments="DISTPATH=/mnt/aquarius/lib" buildPath="${workspace_loc:/MCP23008}/src" command="make" id="cdt.managedbuild.builder.gnu.cross.2144712166" keepEnvironmentInBuildfile="false" managedBuildOn="false" name="Gnu Make Builder" superClass="cdt.managedbuild.builder.gnu.cross"/>
 							<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.1378821020" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler">
 								<option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.option.optimization.level.1395399268" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.debugging.level.1153584673" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" value="gnu.c.debugging.level.max" valueType="enumerated"/>
@@ -55,7 +55,7 @@
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="I2C"/>
 								</option>
 								<option id="gnu.cpp.link.option.paths.2048939789" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/I2C/Debug}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/I2C/src}&quot;"/>
 								</option>
 								<option defaultValue="true" id="gnu.cpp.link.option.shared.826860559" name="Shared (-shared)" superClass="gnu.cpp.link.option.shared" valueType="boolean"/>
 								<option id="gnu.cpp.link.option.soname.1779665266" name="Shared object name (-Wl,-soname=)" superClass="gnu.cpp.link.option.soname" value="libMCP23008.so.0" valueType="string"/>
@@ -142,6 +142,9 @@
 			<resource resourceType="PROJECT" workspacePath="/MCP23008"/>
 		</configuration>
 		<configuration configurationName="Debug">
+			<resource resourceType="PROJECT" workspacePath="/MCP23008"/>
+		</configuration>
+		<configuration configurationName="Makefile">
 			<resource resourceType="PROJECT" workspacePath="/MCP23008"/>
 		</configuration>
 	</storageModule>
