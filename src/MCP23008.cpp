@@ -21,20 +21,51 @@
  * Copyright © 2012 Georgi Todorov  <terahz@geodar.com>
  */
 
+#include <syslog.h>		/* Syslog functionality */
 #include "MCP23008.h"
 
 MCP23008::MCP23008(int bus, int address) {
 	i2c = new I2CDevice(bus, address);
+
+	//turn off auto incrementing of registers
+	i2c->write_byte(IOCON, IOCON_SEQOP);
 }
 
 MCP23008::~MCP23008() {
 	delete i2c;
 }
 
-void MCP23008::set(uint8_t pin, uint8_t state){
+void MCP23008::enable(uint8_t) {
 
 }
+void MCP23008::disable(uint8_t) {
 
-uint8_t MCP23008::get(uint8_t pin){
+}
+void MCP23008::toggle(uint8_t) {
+
+}
+void MCP23008::on(void) {
+
+}
+void MCP23008::off(void) {
+
+}
+uint8_t MCP23008::get(uint8_t) {
 	return -1;
 }
+void MCP23008::set(uint8_t pin, uint8_t state) {
+
+}
+void MCP23008::setDir(uint8_t, uint8_t) {
+
+}
+uint8_t MCP23008::getDir(uint8_t) {
+	return -1;
+}
+void MCP23008::setAllInput() {
+
+}
+void MCP23008::setAllOutput() {
+
+}
+

@@ -39,17 +39,29 @@
 #define GPIO	0x09
 #define OLAT	0x0A
 
-#define IOCON.INTPOL	0x02 //1 - Active-high; 0 - Active low;
-#define IOCON.ODR		0x04 //1 - Open-driven (overrides INTPOL); 0 - Active driver (INTPOL sets polarity)
-#define IOCON.DISSLW	0x10 //1 - Slew rate disabled; 0 - Slew rate enabled
-#define IOCON.SEQOP		0x20 //1 - Address pointer does not increment;0 - Address pointer increments
+#define IOCON_INTPOL	0x02 //1 - Active-high; 0 - Active low;
+#define IOCON_ODR		0x04 //1 - Open-driven (overrides INTPOL); 0 - Active driver (INTPOL sets polarity)
+#define IOCON_DISSLW	0x10 //1 - Slew rate disabled; 0 - Slew rate enabled
+#define IOCON_SEQOP		0x20 //1 - Address pointer does not increment;0 - Address pointer increments
+#define IO_INPUT	0;
+#define IO_OUTPUT	1;
 
 class MCP23008 {
 public:
 	MCP23008(int, int);
 	virtual ~MCP23008();
+	void enable(uint8_t);
+	void disable(uint8_t);
+	void toggle(uint8_t);
 	void set(uint8_t, uint8_t);
+	void on(void);
+	void off(void);
 	uint8_t get(uint8_t);
+	void setDir(uint8_t, uint8_t);
+	uint8_t getDir(uint8_t);
+	void setAllInput();
+	void setAllOutput();
+
 private:
 	I2CDevice *i2c;
 
