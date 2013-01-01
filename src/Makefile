@@ -8,7 +8,9 @@ MAJOR := 0
 MINOR := 1
 NAME := MCP23008
 VERSION := $(MAJOR).$(MINOR)
+RM := rm -rf
 
+all: lib
 lib: lib$(NAME).so.$(VERSION) lib$(NAME).so
 
 lib$(NAME).so: lib$(NAME).so.$(VERSION)
@@ -17,3 +19,6 @@ lib$(NAME).so: lib$(NAME).so.$(VERSION)
 
 lib$(NAME).so.$(VERSION): $(NAME).o
 	$(CXX) -pg -shared -Wl,-soname,lib$(NAME).so.$(MAJOR) $^ -o $@
+	
+clean:
+	$(RM) *.o *.so*

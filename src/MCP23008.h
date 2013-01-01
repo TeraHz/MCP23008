@@ -24,7 +24,7 @@
 #ifndef MCP23008_H_
 #define MCP23008_H_
 #include <inttypes.h>
-#include "I2CDevice.h"
+#include "I2C.h"
 
 // Register Definitions
 #define IODIR	0x00
@@ -63,7 +63,7 @@ public:
 	void setAllOutput();
 
 private:
-	I2CDevice *i2c;
+	I2C *i2c;
 	uint8_t ledstate;
 	uint8_t getState();
 

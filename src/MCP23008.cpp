@@ -25,7 +25,7 @@
 #include "MCP23008.h"
 
 MCP23008::MCP23008(int bus, int address) {
-	i2c = new I2CDevice(bus, address);
+	i2c = new I2C(bus, address);
 	//turn off auto incrementing of registers
 	i2c->write_byte(IOCON, IOCON_SEQOP);
 	//get current chip state
