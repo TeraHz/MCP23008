@@ -64,6 +64,8 @@ public:
 
 private:
 	I2CDevice *i2c;
+	uint8_t ledstate;
+	uint8_t getState();
 
 };
 
