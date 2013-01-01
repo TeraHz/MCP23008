@@ -23,11 +23,36 @@
 
 #ifndef MCP23008_H_
 #define MCP23008_H_
+#include <inttypes.h>
+#include "I2CDevice.h"
+
+// Register Definitions
+#define IODIR	0x00
+#define IPOL	0x01
+#define GPINTEN	0x02
+#define DEFVAL	0x03
+#define INTCON	0x04
+#define IOCON	0x05
+#define GPPU	0x06
+#define INTF	0x07
+#define INTCAP	0x08
+#define GPIO	0x09
+#define OLAT	0x0A
+
+#define IOCON.INTPOL	0x02 //1 - Active-high; 0 - Active low;
+#define IOCON.ODR		0x04 //1 - Open-driven (overrides INTPOL); 0 - Active driver (INTPOL sets polarity)
+#define IOCON.DISSLW	0x10 //1 - Slew rate disabled; 0 - Slew rate enabled
+#define IOCON.SEQOP		0x20 //1 - Address pointer does not increment;0 - Address pointer increments
 
 class MCP23008 {
 public:
-	MCP23008();
+	MCP23008(int, int);
 	virtual ~MCP23008();
+	void set(uint8_t, uint8_t);
+	uint8_t get(uint8_t);
+private:
+	I2CDevice *i2c;
+
 };
 
 #endif /* MCP23008_H_ */

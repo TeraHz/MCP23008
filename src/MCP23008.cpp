@@ -23,12 +23,18 @@
 
 #include "MCP23008.h"
 
-MCP23008::MCP23008() {
-	// TODO Auto-generated constructor stub
-
+MCP23008::MCP23008(int bus, int address) {
+	i2c = new I2CDevice(bus, address);
 }
 
 MCP23008::~MCP23008() {
-	// TODO Auto-generated destructor stub
+	delete i2c;
 }
 
+void MCP23008::set(uint8_t pin, uint8_t state){
+
+}
+
+uint8_t MCP23008::get(uint8_t pin){
+	return -1;
+}
